@@ -1,4 +1,2 @@
-alert('Hello world')
-
-let favoriteFood = 'Beef Brisket';
-document.write(favoriteFood)
+// This array will contain Animal 
+let animalList = [];
