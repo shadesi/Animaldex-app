@@ -1,4 +1,4 @@
-// This array will contain Animal 
+// This array will contain Animals 
 let animalList = [
     {
         name: "Lion",
