@@ -1,0 +1,15 @@
+/* Setting the background color of the entire webpage */
+body {
+    background-color: #88c8f0;
+    font-family: 'Book Antiqua', sans-serif;
+    color: #000609;
+    margin: 10;
+    padding: 10;
+}
+
+/* Styling for all h1 elements */
+h1 {
+    color: #1e0562;
+    font-size: 2em;
+    text-align: center;
+}
