@@ -2,19 +2,19 @@
 let animalRepository = (function () {
   let animalList = [
     {
-        name: "Lion",
-        height: 7,
-        types: ['grass', 'poison']
+      name: "Lion",
+      height: 7,
+      types: ['grass', 'poison']
     },
     {
-        name: "Sheep",
-        height: 6,
-        types: ['fire']
+      name: "Sheep",
+      height: 6,
+      types: ['fire']
     },
     {
-        name: "Dog",
-        height: 5,
-        types: ['water']
+      name: "Dog",
+      height: 5,
+      types: ['water']
     }
   ];
 
@@ -26,9 +26,29 @@ let animalRepository = (function () {
     return animalList;
   }
 
+  function addListItem(animal) {
+    let animalListElement = document.querySelector(".animal-list");
+    let listAnimal = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = animal.name;
+    button.classList.add("button-class");
+    listAnimal.appendChild(button);
+    animalListElement.appendChild(listAnimal);
+
+    // Adding event listener to the button
+    button.addEventListener('click', function() {
+      showDetails(animal);
+    });
+  }
+
+  function showDetails(animal) {
+    console.log(animal);
+  }
+
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 })();
 
@@ -36,17 +56,9 @@ let animalRepository = (function () {
 // Adding some sample Animals to the repository
 animalRepository.add({ name: 'Cat', height: 2, types: ['tree', 'leaves'] });
 animalRepository.add({ name: 'Rabbit', height: 3, types: ['wool'] });
-animalRepository.add({ name: 'Mouse', height: 1, types: ['Cheese'] });
+animalRepository.add({ name: 'Mouse', height: 1, types: ['cheese'] });
 
 // Using forEach to iterate over animalList and print each Animal's details
 animalRepository.getAll().forEach(function(animal) {
-  if (animal.height >= 6) {
-    document.write(animal.name + " [ height: " + animal.height + " ]" + " is classified as a big size animal!" + '<br><br>');
-  } else if (animal.height >= 4 && animal.height < 6) {
-    document.write(animal.name + " [ height: " + animal.height + " ]" + " is classified as a medium size animal!" + '<br><br>');
-  } else if (animal.height >= 2 && animal.height < 4) {
-    document.write(animal.name + " [ height: " + animal.height + " ]" + " is classified as a small size animal!" + '<br><br>');
-  } else {
-    document.write(animal.name + " [ height: " + animal.height + " ]" + " is classified as a tiny size animal!" + '<br><br>');
-  }
+  animalRepository.addListItem(animal);
 });
